@@ -33,17 +33,12 @@ $("#submit").on("click", (event) => {
   let $title = $("#title").val()
   let $rating = $("#rating").val()
 
-  $("#display").append(`<div class="movie">${$title} ${$rating} <button id="remove">Remove</button></div>`);
+  $("#display")
+    .append(`<div id='${$title}'>${$title} ${$rating}</div>`)
+    .on("click", (event) => {
+        $(`#${$title}`).remove();
+  });
 });
-
-function remove(event) {
-  console.log(event.target)
-  $(`.movie`).remove();
-
-}
-
-$("#remove").on("click", remove);
-
 
 
 </script>
