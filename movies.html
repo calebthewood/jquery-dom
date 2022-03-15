@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+
+  </style>
+
+</head>
+
+
+<body>
+
+<div>
+  <form action="">
+    <input type="text" placeholder="Title" id="title">
+    <input type="text" placeholder="Rating" id="rating">
+    <button id="submit">Submit</button>
+  </form>
+</div>
+<div id="display"></div>
+
+  <script src="https://unpkg.com/jquery"></script>
+<script>
+
+
+$("#submit").on("click", (event) => {
+  event.preventDefault()
+  let $title = $("#title").val()
+  let $rating = $("#rating").val()
+
+  $("#display").append(`<div class="movie">${$title} ${$rating} <button id="remove">Remove</button></div>`);
+});
+
+function remove(event) {
+  console.log(event.target)
+  $(`.movie`).remove();
+
+}
+
+$("#remove").on("click", remove);
+
+
+
+</script>
+</body>
+</html>
